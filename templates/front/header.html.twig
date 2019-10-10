@@ -1,0 +1,101 @@
+{% block header %}
+	<!DOCTYPE html>
+	<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title> {{ title }} </title>
+		<link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="/css/style.css" type="text/css" />
+		<link rel="stylesheet" href="/css/swiper.css" type="text/css" />
+		<link rel="stylesheet" href="/css/dark.css" type="text/css" />
+		<link rel="stylesheet" href="/css/font-icons.css" type="text/css" />
+		<link rel="stylesheet" href="/css/animate.css" type="text/css" />
+		<link rel="stylesheet" href="/css/magnific-popup.css" type="text/css" />
+		<link rel="stylesheet" href="/css/responsive.css" type="text/css" />
+	</head>
+
+	<body class="stretched">
+		<div id="wrapper" class="clearfix">
+    <!-- Header
+    ============================================= -->
+    <header id="header" class="full-header dark">
+
+    	<div id="header-wrap">
+
+    		<div class="container clearfix">
+
+    			<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+          <!-- Logo
+          ============================================= -->
+          <div id="logo">
+          	<a href="" class="standard-logo">{{ title }}</a>
+          </div><!-- #logo end -->
+          <!-- Primary Navigation
+          ============================================= -->
+          <nav id="primary-menu">
+          	<ul>
+          		<li ><a href="index.php">Accueil</a>
+          		</li>
+          		<li ><a href="">Catégorie</a>                
+          			<ul class="dropdown-menu scrollable-menu" role="menu">
+          				{% for categorys in allCategory %}
+          					<li><a href="categorie.php?cat={{ categorys.Category_Code }} ">{{ categorys.Category_Name }}</a>
+          					</li>
+          				{% endfor %} 
+          			</ul> 
+          		</li>
+              {% if login == false %}
+          		<li ><a href="login.php">Login</a>
+          		</li>
+              {% else %}
+              <li ><a href="deconnexion.php">Logout</a>
+              </li> 
+              {% endif %}                     
+          	</ul>
+
+            <!-- Top Cart
+            ============================================= -->
+            <div id="top-cart">
+            	<a href="#" id="top-cart-trigger"><i class="icon-shopping-cart"></i><span></span></a>
+            	<div class="top-cart-content">
+            		<div class="top-cart-title">
+            			<h4>Panier</h4>
+            		</div>
+            		<div class="top-cart-items">
+            			<div class="top-cart-item clearfix">
+            				<div class="top-cart-item-image">
+            					<a href="#"><img src="" alt="" /></a>
+            				</div>
+            				<div class="top-cart-item-desc">
+            					<a href="#">achat</a>
+            					<span class="top-cart-item-price">prix</span>
+            				</div>
+            			</div>
+            		</div>
+            		<div class="top-cart-action clearfix">
+            			<span class="fleft top-checkout-price">00</span>
+            			<button class="button button-3d button-small nomargin fright">acheter</button>
+            		</div>
+            	</div>
+            </div>
+			<!-- Top Search
+			============================================= -->
+			<div id="top-search">
+				
+				<a id="top-search-trigger" ><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
+				<form id="prefetch" action="search.php" method="post">
+					<input id="searchSuggestions" type="text" name="q" class="typeahead form-control" placeholder="Recherche...">
+					<input type="submit" id="submitSearch" class="form-control">
+				</form>	
+				</div
+				><!-- #top-search end -->
+			</nav><!-- #primary-menu end -->
+		</div>
+	</div>
+
+</header> <!-- #header end -->
+
+
+
+{% endblock header %}
